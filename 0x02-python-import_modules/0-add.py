@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
+if __add_0___ == "__main__":
     from add_0_ import add
     a = 1
     b = 2
