@@ -2,5 +2,5 @@
 
 def print_list_integer(my_list=[]):
     my_list = [1, 2, 3, 4, 5]
-    print(f"print_list_integer")
-    print(my_list, sep = "\n")
+
+    print('\n'.join(map(str, my_list)))
