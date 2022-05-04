@@ -2,7 +2,7 @@
 
 def search_replace(my_list, search, replace):
     newreplace = my_list.copy()
-    for a, i in enumerate(newreplace):
+    for n, i in enumerate(newreplace):
         if i == search:
-            newreplace[a] = replace
+            newreplace[n] = replace
             return newreplace
