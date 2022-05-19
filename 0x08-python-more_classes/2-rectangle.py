@@ -1,21 +1,29 @@
 #!/usr/bin/python3
-"""create the class"""
+"""
+A Rectangle
+"""
 
 
 class Rectangle:
-    """initialize"""
+    """
+    functions and data
+    """
     def __init__(self, width=0, height=0):
+        """instatiation
+        """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """the getter of width"""
+        """Getter width
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """the setter in width"""
+        """Setter width
+        """
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value < 0:
@@ -24,12 +32,14 @@ class Rectangle:
 
     @property
     def height(self):
-        """the setter of self in height"""
+        """Getter height
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """the getter of self in height"""
+        """Setter height
+        """
         if type(value) != int:
             raise TypeError("height must be an integer")
         if value < 0:
@@ -37,11 +47,13 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """return area"""
+        """Returns area
+        """
         return self.__width * self.__height
-    
+
     def perimeter(self):
-        """return perimeter"""
+        """Returns perimeter
+        """
         if self.__width == 0 or self.__height == 0:
             return 0
         else:
