@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""empty class Rectangle"""
+"""create class"""
+
 
 class Rectangle:
-    """print class"""
+    """add pass for print class"""
     pass
