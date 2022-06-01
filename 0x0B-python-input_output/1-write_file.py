@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-"""write a function that writes a string to a text
-file and returns the number of characters written"""
+"""Contains function write_file"""
+
 
 def write_file(filename="", text=""):
-    with open("write_file", encoding="utf8"):
-        write_file = f.read()
+    """Writes a string to a text file (UTF8)
+    Returns the number of characters written
+    """
+    with open(filename, 'w') as file_object:
+        return file_object.write(text)
