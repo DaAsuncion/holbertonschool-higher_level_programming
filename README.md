@@ -1,7 +1,7 @@
-0x00. Python - Hello, World
+# 0x00. Python - Hello, World
 
 Author’s disclaimer
-Welcome to the Python world!
+# Welcome to the Python world!
 
 The first projects are more "C-oriented" - no tricks, no funky syntax - simple!
 If you've already played with Python, don't worry, fun things will come.
@@ -12,8 +12,8 @@ Enjoy!
 
 - Guillaume
 
-Zen
-The Zen of Python, by Tim Peters
+# Zen
+# The Zen of Python, by Tim Peters
 
 Beautiful is better than ugly.
 Explicit is better than implicit.
