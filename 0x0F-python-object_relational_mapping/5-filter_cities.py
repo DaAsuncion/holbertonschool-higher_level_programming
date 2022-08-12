@@ -1,19 +1,42 @@
 #!/usr/bin/python3
-# Displays all cities of a given state from the
-# states table of the database hbtn_0e_4_usa.
-# Safe from SQL injections.
-# Usage: ./5-filter_cities.py <mysql username> \
-#                             <mysql password> \
-#                             <database name> \
-#                             <state name searched>
-import sys
-import MySQLdb
+""" lists all cities of that state """
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    c = db.cursor()
-    c.execute("SELECT * FROM `cities` as `c` \
-                INNER JOIN `states` as `s` \
-                   ON `c`.`state_id` = `s`.`id` \
-                ORDER BY `c`.`id`")
-    print(", ".join([ct[2] for ct in c.fetchall() if ct[4] == sys.argv[4]]))
+import MySQLdb
+from sys import argv
+
+if __name__ == '__main__':
+
+    try:
+        conn = MySQLdb.connect(
+                host="localhost",
+                port=3306,
+                user=argv[1],
+                passwd=argv[2],
+                db=argv[3],
+                charset="utf8")
+    except Exception:
+        print("Error conexion with database")
+        exit()
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT cities.name FROM states JOIN cities \
+                ON cities.state_id=states.id \
+                WHERE states.name=%s ORDER BY cities.id ASC", (argv[4], ))
+    except Exception:
+        cursor.close()
+        conn.close()
+        print("query interrumped")
+        exit()
+    row_cities = cursor.fetchall()
+
+    count = 0
+    if (len(row_cities) == 0):
+        print()
+    for citie in row_cities:
+        if (count + 1) == len(row_cities):
+            print(citie[0])
+        else:
+            print(citie[0], end=", ")
+        count += 1
+    cursor.close()
+    conn.close()
